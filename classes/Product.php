@@ -4,28 +4,34 @@ class Product
     public $name;
     protected $brand;
     protected $price;
+    protected $category;
 
-    function __construct($_name, $_brand, $_price)
+    function __construct($_name, $_brand, $_price, $_category)
     {
-        $this->name = $_name;
-        $this->brand = $_brand;
-        $this->price = $_price;
+        $this->setName($_name);
+        $this->setBrand($_brand);
+        $this->setPrice($_price);
+        $this->setCategory($_category);
     }
 
-    // Getter methods
-    public function getName()
+    // Setter Methods
+    public function setName($value)
     {
-        return $this->name;
+        $this->name = $value;
     }
-    public function getBrand()
+
+    public function setBrand($value)
     {
-        return $this->brand;
+        $this->brand = $value;
     }
-    public function getPrice()
+
+    public function setPrice($value)
     {
-        return $this->price;
+        $this->price = $value;
+    }
+
+    public function setCategory($value)
+    {
+        $this->category = $value;
     }
 }
-
-// $product = new Product("XMonitor", "Asus", "$ 320.00");
-// var_dump($product);

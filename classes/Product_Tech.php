@@ -1,28 +1,32 @@
 <?php
 require_once __DIR__ . "/Product.php";
 
-class Tech extends Product
+class Product_Tech extends Product
 {
     protected $model;
     protected $type;
 
-    function __construct($_name, $_brand, $_price, $_model, $_type)
+    function __construct(array $_data)
     {
-        parent::__construct($_name, $_brand, $_price);
-        $this->model = $_model;
-        $this->type = $_type;
+        $_name = $_data["name"];
+        $_brand = $_data["brand"];
+        $_price = $_data["price"];
+        $_category = $_data["category"];
+        $_model = isset($_data["model"]) ? $_data["model"] : "";
+        $_type = isset($_data["type"]) ? $_data["type"] : "";
+
+        parent::__construct($_name, $_brand, $_price, $_category);
+        $this->setModel($_model);
+        $this->setType($_type);
     }
 
     // Getter methods
-    public function getBrand()
+    public function setModel($value)
     {
-        return $this->brand;
+        $this->model = $value;
     }
-    public function getType()
+    public function setType($value)
     {
-        return $this->type;
+        $this->type = $value;
     }
 }
-
-// $tech = new Tech("XMonitor", "Asus", "$ 320.00", "XSJ65R3", "Monitor");
-// var_dump($tech);

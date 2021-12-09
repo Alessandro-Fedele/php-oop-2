@@ -1,0 +1,51 @@
+<?php
+$productsList = [
+    [
+        "name" => "iPhone",
+        "brand" => "Apple",
+        "price" => "$ 1299.00",
+        "category" => "Tech",
+        "model" => "13Pro Max",
+        "type" => "Smartphone",
+    ],
+    [
+        "name" => "Basilisk",
+        "brand" => "Razer",
+        "price" => "$ 79.99",
+        "category" => "Tech",
+        "model" => "v3",
+        "type" => "Mouse",
+    ],
+    [
+        "name" => "Mia",
+        "brand" => "Casarti",
+        "price" => "$ 40.99",
+        "category" => "Home",
+        "material" => "Ceramica",
+        "type" => "Lampada",
+    ],
+    [
+        "name" => "Bill",
+        "brand" => "Ikea",
+        "price" => "$ 79.49",
+        "category" => "Home",
+        "material" => "Legno",
+        "type" => "Armadio",
+    ],
+    [
+        "name" => "Gocciole",
+        "brand" => "Pavesi",
+        "price" => "$ 4.49",
+        "category" => "Food",
+        "expiry_date" => "2023",
+        "weight" => "500gr",
+    ],
+    [
+        "name" => "Spaghetti",
+        "brand" => "Barilla",
+        "price" => "$ 1.59",
+        "category" => "Food",
+        "expiry_date" => "2025",
+        "weight" => "500gr",
+    ],
+];

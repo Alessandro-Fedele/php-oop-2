@@ -1,28 +1,32 @@
 <?php
 require_once __DIR__ . "/Product.php";
 
-class Food extends Product
+class Product_Food extends Product
 {
     protected $expiry_date;
     protected $weight;
 
-    function __construct($_name, $_brand, $_price, $_expiry_date, $_weight)
+    function __construct(array $_data)
     {
-        parent::__construct($_name, $_brand, $_price);
-        $this->expiry_date = $_expiry_date;
-        $this->weight = $_weight;
+        $_name = $_data["name"];
+        $_brand = $_data["brand"];
+        $_price = $_data["price"];
+        $_category = $_data["category"];
+        $_expiry_date = isset($_data["expiry_date"]) ? $_data["expiry_date"] : "";
+        $_weight = isset($_data["weight"]) ? $_data["weight"] : "";
+
+        parent::__construct($_name, $_brand, $_price, $_category);
+        $this->setExpiryDate($_expiry_date);
+        $this->setWeight($_weight);
     }
 
     // Getter methods
-    public function getExpiryDate()
+    public function setExpiryDate($value)
     {
-        return $this->expiry_date;
+        $this->expiry_date = $value;
     }
-    public function getWeight()
+    public function setWeight($value)
     {
-        return $this->weight;
+        $this->weight = $value;
     }
 }
-
-// $food = new FOOD("Spaghetti", "Barilla", "$ 2.50", "2030", "500g");
-// var_dump($food);

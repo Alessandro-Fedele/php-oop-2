@@ -1,28 +1,32 @@
 <?php
 require_once __DIR__ . "/Product.php";
 
-class Home extends Product
+class Product_Home extends Product
 {
     protected $material;
-    protected $category;
+    protected $type;
 
-    function __construct($_name, $_brand, $_price, $_material, $_category)
+    function __construct(array $_data)
     {
-        parent::__construct($_name, $_brand, $_price);
-        $this->material = $_material;
-        $this->category = $_category;
+        $_name = $_data["name"];
+        $_brand = $_data["brand"];
+        $_price = $_data["price"];
+        $_category = $_data["category"];
+        $_material = isset($_data["material"]) ? $_data["material"] : "";
+        $_type = isset($_data["type"]) ? $_data["type"] : "";
+
+        parent::__construct($_name, $_brand, $_price, $_category);
+        $this->setMaterial($_material);
+        $this->setType($_type);
     }
 
     // Getter methods
-    public function getMaterial()
+    public function setMaterial($value)
     {
-        return $this->material;
+        $this->material = $value;
     }
-    public function getCategory()
+    public function setType($value)
     {
-        return $this->category;
+        $this->type = $value;
     }
 }
-
-// $home = new Home("Mia", "Casati", "$ 40.99", "Cercamica", "Lampada");
-// var_dump($home);

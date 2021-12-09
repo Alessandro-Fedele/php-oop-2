@@ -1,15 +1,19 @@
 <?php
 require_once __DIR__ . "/User.php";
 
-class Prime extends User
+class User_Prime extends User
 {
     protected $primeNumber;
-    protected $discount = "20%";
+    protected $shippingCosts = 0;
 
-    function __construct($_userName, $_email, $_password, $_payMethod, $_primeNumber, $_discount)
+    function __construct($_firstName, $_lastName, $_email, $_address, $_accountType, $_paymentMethod, $_primeNumber)
     {
-        parent::__construct($_userName, $_email, $_password, $_payMethod);
-        $this->primeNumber = $_primeNumber;
-        $this->discount = $_discount;
+        parent::__construct($_firstName, $_lastName, $_email, $_address, $_accountType, $_paymentMethod);
+        $this->setPrimeNumber($_primeNumber);
+    }
+
+    public function setPrimeNumber($value)
+    {
+        $this->primeNumber = $value;
     }
 }
