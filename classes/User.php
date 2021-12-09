@@ -10,8 +10,15 @@ class User
     protected $paymentMethod = "";
     public $cart;
 
-    function __construct($_firstName, $_lastName, $_email, $_address, $_accountType, $_paymentMethod)
+    function __construct(array $_data)
     {
+        $_firstName = $_data["firstName"];
+        $_lastName = $_data["lastName"];
+        $_email = $_data["email"];
+        $_address = $_data["address"];
+        $_accountType = $_data["accountType"];
+        $_paymentMethod = $_data["paymentMethod"];
+
         $this->setFirstName($_firstName);
         $this->setLastName($_lastName);
         $this->setEmail($_email);
@@ -48,6 +55,11 @@ class User
         $this->accountType = $value;
     }
 
+    public function setPrimeNumber($value)
+    {
+        $this->prime_number = $value;
+    }
+
     public function setPaymentMethod($value)
     {
         $this->paymentMethod = $value;
@@ -77,6 +89,11 @@ class User
     public function getAccountType()
     {
         return $this->accountType;
+    }
+
+    public function getPrimeNumber()
+    {
+        return $this->prime_number;
     }
 
     public function getPaymentMethod()

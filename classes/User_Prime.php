@@ -6,9 +6,11 @@ class User_Prime extends User
     protected $primeNumber;
     protected $shippingCosts = 0;
 
-    function __construct($_firstName, $_lastName, $_email, $_address, $_accountType, $_paymentMethod, $_primeNumber)
+    function __construct(array $_data)
     {
-        parent::__construct($_firstName, $_lastName, $_email, $_address, $_accountType, $_paymentMethod);
+        $_primeNumber = isset($_data["primeNumber"]) ? $_data["primeNumber"] : "";
+
+        parent::__construct($_data);
         $this->setPrimeNumber($_primeNumber);
     }
 
