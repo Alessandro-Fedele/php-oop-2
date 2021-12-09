@@ -8,7 +8,8 @@ class User
     protected $address = "";
     protected $accountType = "";
     protected $paymentMethod = "";
-    public $cart;
+    // public $cart;
+    use Cart;
 
     function __construct(array $_data)
     {
@@ -26,7 +27,7 @@ class User
         $this->setAccountType($_accountType);
         $this->setPaymentMethod($_paymentMethod);
         // Istanza di Cart
-        $this->cart = new Cart();
+        // $this->cart = new Cart();
     }
 
     // Setter Methods

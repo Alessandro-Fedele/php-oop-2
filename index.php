@@ -35,5 +35,15 @@ foreach ($productsList as $product) {
     }
 }
 
-var_dump($users);
-var_dump($products);
+// var_dump($users);
+// var_dump($products);
+
+$users[0]->addToCart($products[0]);
+$users[0]->addToCart($products[2]);
+$users[0]->addToCart($products[5]);
+var_dump($users[0]);
+
+$users[3]->addToCart($products[1]);
+$users[3]->addToCart($products[3]);
+$users[3]->addToCart($products[4]);
+var_dump($users[3]);
